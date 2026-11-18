@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>הדמיה | קונספט</title>
+  <meta name="description" content="הדמיה של חלל בסגנונות שונים: בחרו חלל וסגנון וראו איך הוא נראה.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/simulation.css">
+    <link rel="icon" href="pic\Logo.ico.jpg">
+</head>
+<body>
+<header>
+  <nav class="main-nav">
+     <a class="logo" href="index.html">
+ consept
+</a>
+   
+     <ul>
+      <li><a class="btn" href="index.html">בית</a></li>
+      <li><a class="btn" href="about.html">אודות</a></li>
+      <li><a class="btn" href="interior.html">עיצוב פנים</a></li>
+      <li><a class="btn" href="exterior.html">עיצוב חוץ</a></li>
+      <li><a class="btn" href="order.html">הזמנה</a></li>
+      <li><a class="btn" href="simulation.html">הדמיה</a></li>
+    </ul>   
+  </nav>
+  </header>
+
+  <main class="sim-page">
+
+    <section class="sim-hero">
+      <h1>הדמיה</h1>
+    </section>
+
+    <section class="sim-card">
+      <p class="sim-intro">בחרו חלל וסגנון, וראו איך הוא נראה. הסימולטור משנה את הגוון והאווירה של התמונה לפי הסגנון שבחרתם.</p>
+
+      <div class="simulator">
+
+        <!-- הבחירות עצמן. הן חייבות לבוא לפני הלחצנים והתמונה, כדי שה-CSS יוכל להגיב אליהן -->
+        <input type="radio" name="space" id="space-living" class="sim-input space-living" checked>
+        <input type="radio" name="space" id="space-bedroom" class="sim-input space-bedroom">
+        <input type="radio" name="space" id="space-garden" class="sim-input space-garden">
+
+        <input type="radio" name="style" id="style-warm" class="sim-input style-warm" checked>
+        <input type="radio" name="style" id="style-luxury" class="sim-input style-luxury">
+        <input type="radio" name="style" id="style-modern" class="sim-input style-modern">
+        <input type="radio" name="style" id="style-light" class="sim-input style-light">
+
+        <div class="sim-controls">
+
+          <fieldset>
+            <legend>1. בחרו חלל</legend>
+            <div class="option-row">
+              <label class="btn lbl-living" for="space-living">סלון</label>
+              <label class="btn lbl-bedroom" for="space-bedroom">חדר שינה</label>
+              <label class="btn lbl-garden" for="space-garden">גינה</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. בחרו סגנון</legend>
+            <div class="option-row">
+              <label class="swatch lbl-warm" for="style-warm">
+                <span class="dot dot-warm"></span>חם וביתי
+              </label>
+              <label class="swatch lbl-luxury" for="style-luxury">
+                <span class="dot dot-luxury"></span>יוקרתי
+              </label>
+              <label class="swatch lbl-modern" for="style-modern">
+                <span class="dot dot-modern"></span>מודרני
+              </label>
+              <label class="swatch lbl-light" for="style-light">
+                <span class="dot dot-light"></span>בהיר
+              </label>
+            </div>
+          </fieldset>
+
+        </div>
+
+        <figure class="sim-stage">
+          <img class="img-living" src="pic\Gemini_Generated_Image_aw51acaw51acaw51.jpg" alt="סלון לדוגמה">
+          <img class="img-bedroom" src="pic\חדר שינה חמים ונעים בגווני ורוד ועץ.png" alt="חדר שינה לדוגמה">
+          <img class="img-garden" src="pic\Gemini_Generated_Image_8tniq8tniq8tniq8.jpg" alt="גינה לדוגמה">
+          <figcaption>
+            <span class="cap-space cap-living">סלון</span>
+            <span class="cap-space cap-bedroom">חדר שינה</span>
+            <span class="cap-space cap-garden">גינה</span>
+            <span class="cap-style cap-warm">בסגנון חם וביתי</span>
+            <span class="cap-style cap-luxury">בסגנון יוקרתי</span>
+            <span class="cap-style cap-modern">בסגנון מודרני</span>
+            <span class="cap-style cap-light">בסגנון בהיר</span>
+          </figcaption>
+        </figure>
+
+      </div>
+
+      <div class="how-to">
+        <h2>איך משתמשים בסימולטור</h2>
+        <ol>
+          <li>בוחרים חלל: סלון, חדר שינה או גינה.</li>
+          <li>בוחרים סגנון, והתמונה משנה את הגוון שלה.</li>
+          <li>אם אהבתם, עוברים להזמנה, ואפשר לבקש עזרה מהסטודיו.</li>
+        </ol>
+      </div>
+
+      <div class="sim-buttons">
+        <a class="btn btn-large" href="order.html">אהבתי, אני רוצה להזמין</a>
+        <a class="btn btn-large" href="interior.html">לדפי העיצוב</a>
+      </div>
+    </section>
+
+  </main>
+
+ <footer class="site-footer">
+    <p>&copy; כל הזכויות שמורות לאפרת קונספט</p>
+    <span>
+    <a href="about.html">אודות</a>
+    |
+    <a href="pic\project-instructions.pdf" target="lll"> קובץ PDF להורדה</a>
+    </span>
+  </footer>
+</body>
+</html>

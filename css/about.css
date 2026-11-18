@@ -1,0 +1,287 @@
+/* ===== about.css - עיצוב ייחודי לדף אודות ===== */
+
+/* ביטול הגבלת הרוחב של main מהקובץ המשותף, כדי שאזור הפתיחה יתפרס על כל המסך */
+main.about-page {
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+  padding: 0 0 4%;
+}
+
+/* ===== אזור פתיחה ===== */
+.about-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 55vh;
+  padding-bottom: 6%;
+  background-color: var(--coffee);
+  background-image:
+    linear-gradient(rgba(75, 54, 33, 0.65), rgba(75, 54, 33, 0.8)),
+    url("../assets/images/about-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.about-hero h1 {
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--gold);
+  color: var(--cream);
+  font-size: 4rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== כרטיס צף ===== */
+.about-card {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 1100px;
+  margin: -9% auto 0;
+  padding: 4% 5%;
+  background-color: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(75, 54, 33, 0.25);
+}
+  .main-nav {
+     position: sticky;
+    top: 0;
+    z-index: 1000;   }
+
+.lead {
+  margin-bottom: 3%;
+  color: var(--coffee);
+  font-family: "Frank Ruhl Libre", "David", Georgia, serif;
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+.about-columns {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4%;
+}
+
+.texts {
+  width: 58%;
+}
+
+.texts h2 {
+  margin: 1.2rem 0 0.4rem;
+  font-size: 1.6rem;
+}
+
+.texts h2:first-child {
+  margin-top: 0;
+}
+
+/* תמונה עם מסגרת זהובה מוזזת */
+.side-figure {
+  position: relative;
+  width: 38%;
+  margin: 0 0 20px 20px;
+}
+
+.side-figure::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+}
+
+.side-figure img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: var(--gray);
+}
+
+/* ===== קווי הפרדה ===== */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+  width: 80%;
+  max-width: 800px;
+  margin: 5% auto;
+  color: var(--gold);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--gold);
+}
+
+/* ===== רשימת שירותים ===== */
+.services {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4% 5%;
+  background-color: #ece1cd;
+  border-radius: 10px;
+}
+
+.services h2 {
+  margin-bottom: 2%;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.services-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid rgba(201, 162, 74, 0.6);
+  color: var(--coffee);
+  font-size: 1.2rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.services-list li:last-child {
+  border-bottom: none;
+}
+
+.services-list li::before {
+  content: "\25C6";
+  color: var(--gold);
+  font-size: 0.9rem;
+}
+
+.services-list li:hover {
+  transform: translateX(-12px);
+  color: var(--gray);
+}
+
+/* ===== סרטון ===== */
+.video-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video-section h2 {
+  margin-bottom: 2%;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.video-frame {
+  width: 100%;
+  padding: 1.5%;
+  background-color: var(--coffee);
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #000;
+}
+
+/* ===== לחצן חזרה ===== */
+.back-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 6%;
+}
+
+.btn-large {
+  padding: 0.7em 2.5em;
+  font-size: 1.3rem;
+}
+
+/* ===== רספונסיביות ===== */
+@media (max-width: 900px) {
+  .about-columns {
+    flex-direction: column;
+  }
+
+  .texts,
+  .side-figure {
+    width: 100%;
+  }
+
+  .side-figure {
+    margin: 0 0 20px;
+  }
+
+  .side-figure::before {
+    right: 12px;
+    top: 12px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: 40vh;
+    background-attachment: scroll;
+  }
+
+  .about-hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .about-card {
+    width: 94%;
+    margin-top: -12%;
+    padding: 6% 5%;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+  }
+
+  .services {
+    width: 94%;
+    padding: 6% 5%;
+  }
+
+  .video-section {
+    width: 94%;
+  }
+
+  .btn-large {
+    width: 80%;
+  }
+
+  .back-wrap {
+    margin-top: 10%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-list li {
+    transition: none;
+  }
+}

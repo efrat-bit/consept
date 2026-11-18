@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>הזמנה | קונספט</title>
+  <meta name="description" content="הזמנת רהיטים מקונספט, עם אפשרות לקבל עזרה מהסטודיו.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/order.css">
+    <link rel="icon" href="pic\Logo.ico.jpg">
+</head>
+<body>
+
+<header>
+  <nav class="main-nav">
+     <a class="logo" href="index.html">
+ consept
+</a>
+    <!-- הלוגו הקישורי בצד ימין -->
+     <ul>
+      <li><a class="btn" href="index.html">בית</a></li>
+      <li><a class="btn" href="about.html">אודות</a></li>
+      <li><a class="btn" href="interior.html">עיצוב פנים</a></li>
+      <li><a class="btn" href="exterior.html">עיצוב חוץ</a></li>
+      <li><a class="btn" href="order.html">הזמנה</a></li>
+      <li><a class="btn" href="simulation.html">הדמיה</a></li>
+    </ul>   
+  </nav>
+  </header>
+
+  <main class="order-page">
+
+    <section class="order-hero">
+      <h1>הזמנה</h1>
+    </section>
+
+    <section class="order-card">
+      <p class="order-intro">בחרו את הפריט שאהבתם, מלאו את הפרטים, ואם תרצו, הסטודיו שלנו ישמח ללוות אתכם. שדות המסומנים בכוכבית הם שדות חובה.</p>
+
+      <form class="order-form" action="thanks.html" method="post">
+
+        <!-- פרטים אישיים -->
+        <fieldset>
+          <legend>פרטים אישיים</legend>
+
+          <div class="field">
+            <label for="fullname">שם מלא *</label>
+            <input type="text" id="fullname" name="fullname" placeholder="לדוגמה: דנה כהן" minlength="2" maxlength="40" pattern="[א-תa-zA-Z' \-]{2,40}" title="יש להזין שם באותיות בלבד" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">טלפון *</label>
+            <input type="tel" id="phone" name="phone" dir="ltr" placeholder="050-1234567" pattern="0[0-9]{1,2}-?[0-9]{7}" title="מספר טלפון ישראלי, למשל 050-1234567" autocomplete="tel" required>
+          </div>
+
+          <div class="field">
+            <label for="email">דואר אלקטרוני *</label>
+            <input type="email" id="email" name="email" dir="ltr" placeholder="name@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="idnum">תעודת זהות *</label>
+            <input type="text" id="idnum" name="idnum" dir="ltr" inputmode="numeric" placeholder="9 ספרות" pattern="[0-9]{9}" maxlength="9" title="תעודת זהות בת 9 ספרות" required>
+          </div>
+        </fieldset>
+
+        <!-- פרטי ההזמנה -->
+        <fieldset>
+          <legend>פרטי ההזמנה</legend>
+
+          <div class="field field-full">
+            <span class="field-title">סוג ההזמנה *</span>
+            <div class="choice-row">
+              <label class="choice"><input type="radio" name="order_type" value="interior" required> עיצוב פנים</label>
+              <label class="choice"><input type="radio" name="order_type" value="exterior"> עיצוב חוץ</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="item">הפריט הנבחר *</label>
+            <select id="item" name="item" required>
+              <option value="" selected disabled>בחרו פריט</option>
+              <optgroup label="עיצוב פנים">
+                <option value="sofa">ספה</option>
+                <option value="floor-lamp">מנורת רצפה</option>
+                <option value="coffee-table">שולחן קפה</option>
+                <option value="bed">מיטה</option>
+                <option value="nightstand">שידת לילה</option>
+                <option value="night-lamp">מנורת לילה</option>
+                <option value="kitchen-island">אי מטבח</option>
+                <option value="bar-stools">כיסאות בר</option>
+                <option value="light-fixture">גוף תאורה</option>
+              </optgroup>
+              <optgroup label="עיצוב חוץ">
+                <option value="garden-sofa">ספת גינה</option>
+                <option value="garden-table">שולחן גינה</option>
+                <option value="garden-lantern">פנס גינה</option>
+                <option value="dining-set">פינת אוכל</option>
+                <option value="pergola">פרגולה</option>
+                <option value="planter">עציץ</option>
+                <option value="sun-lounger">מיטת שיזוף</option>
+                <option value="umbrella">מטרייה</option>
+                <option value="side-table">שולחן צד</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="quantity">כמות *</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="20" value="1" required>
+          </div>
+
+          <div class="field">
+            <label for="delivery-date">תאריך אספקה מועדף *</label>
+            <input type="date" id="delivery-date" name="delivery_date" required>
+          </div>
+
+          <div class="field">
+            <label for="budget">תקציב (בין 50 , ל-100,000 ש"ח)</label>
+            <input type="range" id="budget" name="budget" min="50" max="100000" step="200" value="20000" list="budget-marks">
+            <datalist id="budget-marks">
+              <option value="2000"></option>
+              <option value="25000"></option>
+              <option value="50000"></option>
+              <option value="75000"></option>
+              <option value="100000"></option>
+            </datalist>
+          </div>
+
+          <div class="field field-full">
+            <label for="notes">הערות</label>
+            <textarea id="notes" name="notes" rows="4" maxlength="500" placeholder="צבע, מידות או כל פרט שחשוב לכם"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- עזרה מהסטודיו -->
+        <fieldset>
+          <legend>עזרה מהסטודיו</legend>
+
+          <div class="studio-help">
+            <input type="checkbox" id="studio-help" name="studio_help" value="yes" class="studio-toggle">
+            <label for="studio-help">אני מעוניינת בעזרת הסטודיו</label>
+
+            <div class="studio-options">
+              <p>איך תרצו לקבל את העזרה?</p>
+              <label class="choice"><input type="radio" name="studio_type" value="phone"> ייעוץ טלפוני</label>
+              <label class="choice"><input type="radio" name="studio_type" value="studio"> פגישה בסטודיו</label>
+              <label class="choice"><input type="radio" name="studio_type" value="home"> ביקור בבית</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- פרטי תשלום -->
+        <fieldset>
+          <legend>פרטי תשלום</legend>
+
+          <div class="field">
+            <label for="card-name">שם בעל הכרטיס *</label>
+            <input type="text" id="card-name" name="card_name" minlength="2" maxlength="40" autocomplete="cc-name" required>
+          </div>
+
+          <div class="field">
+            <label for="card-number">מספר כרטיס *</label>
+            <input type="text" id="card-number" name="card_number" dir="ltr" inputmode="numeric" placeholder="16 ספרות" pattern="[0-9]{16}" maxlength="16" title="מספר כרטיס בן 16 ספרות" autocomplete="cc-number" required>
+          </div>
+
+          <div class="field">
+            <label for="card-expiry">תוקף הכרטיס *</label>
+            <input type="month" id="card-expiry" name="card_expiry" autocomplete="cc-exp" required>
+          </div>
+
+          <div class="field">
+            <label for="card-cvv">שלוש ספרות בגב הכרטיס *</label>
+            <input type="text" id="card-cvv" name="card_cvv" dir="ltr" inputmode="numeric" placeholder="123" pattern="[0-9]{3}" maxlength="3" title="שלוש ספרות" autocomplete="cc-csc" required>
+          </div>
+
+          <div class="field">
+            <label for="installments">מספר תשלומים</label>
+            <select id="installments" name="installments">
+              <option value="1" selected>תשלום אחד</option>
+              <option value="2">2 תשלומים</option>
+              <option value="3">3 תשלומים</option>
+              <option value="6">6 תשלומים</option>
+              <option value="12">12 תשלומים</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <label class="terms">
+          <input type="checkbox" name="terms" value="yes" required>
+          קראתי ואני מאשרת את תנאי הרכישה *
+        </label>
+
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-large">שליחה</button>
+          <button type="reset" class="btn btn-large">איפוס</button>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; כל הזכויות שמורות לאפרת קונספט</p>
+    <span>
+    <a href="about.html">אודות</a>
+    |
+    <a href="pic\project-instructions.pdf" target="lll"> קובץ PDF להורדה</a>
+    </span>
+  </footer>
+</body>
+</html>

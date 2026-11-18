@@ -1,0 +1,151 @@
+
+ 
+/* ===== חלק עליון מתחלף (סליידר) ===== */
+.slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  overflow: hidden;
+  background-color: var(--gray);
+}
+ 
+.slider .slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: slide-fade 24s infinite;
+}
+ 
+.slider .slide:nth-child(2) { animation-delay: 6s; }
+.slider .slide:nth-child(3) { animation-delay: 12s; }
+.slider .slide:nth-child(4) { animation-delay: 18s; }
+ 
+@keyframes slide-fade {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  25%  { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+  .main-nav {
+     position: sticky;
+    top: 0;
+    z-index: 1000;   }
+ 
+/* ===== משפט פתיחה ===== */
+.intro {
+  text-align: center;
+  padding: 2% 0 4%;
+}
+ 
+.intro h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1%;
+}
+ 
+.intro p {
+  max-width: 60ch;
+  margin: 0 auto;
+}
+ 
+/* ===== בלוקים של פנים וחוץ ===== */
+.blocks {
+  display: flex;
+  flex-direction: row;
+  gap: 4%;
+}
+ 
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  width: 48%;
+  padding: 3%;
+  background-color: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+}
+ 
+.block h2 {
+  font-size: 1.8rem;
+}
+ 
+.block > .btn {
+  margin-top: auto;
+}
+ 
+/* ===== דוגמאות ===== */
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3%;
+  width: 100%;
+}
+ 
+.examples figure {
+  width: 31%;
+  overflow: hidden;
+}
+ 
+.examples img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.4s;
+}
+ 
+.examples figure:hover img {
+  transform: scale(1.06);
+}
+ 
+.examples figcaption {
+  padding-top: 0.4rem;
+  color: var(--coffee);
+  font-size: 0.95rem;
+  text-align: center;
+}
+ 
+/* ===== רספונסיביות ===== */
+@media (max-width: 900px) {
+  .blocks {
+    flex-direction: column;
+    gap: 2rem;
+  }
+ 
+  .block {
+    width: 100%;
+  }
+}
+ 
+@media (max-width: 768px) {
+  .slider {
+    aspect-ratio: 4 / 3;
+  }
+ 
+  .intro h1 {
+    font-size: 1.8rem;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .examples figure {
+    width: 100%;
+  }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  .slider .slide {
+    animation: none;
+  }
+ 
+  .slider .slide:first-child {
+    opacity: 1;
+  }
+}
+ 

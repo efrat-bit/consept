@@ -1,0 +1,380 @@
+/* ===== simulation.css - עיצוב ייחודי לדף ההדמיה ===== */
+
+main.sim-page {
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+  padding: 0 0 4%;
+}
+
+/* ===== אזור פתיחה ===== */
+.sim-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 40vh;
+  padding-bottom: 6%;
+  background-color: var(--coffee);
+  background-image:
+    linear-gradient(rgba(75, 54, 33, 0.65), rgba(75, 54, 33, 0.8)),
+    url("../assets/images/sim-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+  .main-nav {
+     position: sticky;
+    top: 0;
+    z-index: 1000;   }
+.sim-hero h1 {
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--gold);
+  color: var(--cream);
+  font-size: 4rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== כרטיס צף ===== */
+.sim-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 90%;
+  max-width: 1100px;
+  margin: -7% auto 0;
+  padding: 4% 5%;
+  background-color: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(75, 54, 33, 0.25);
+}
+
+.sim-intro {
+  color: var(--coffee);
+  font-family: "Frank Ruhl Libre", "David", Georgia, serif;
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+
+/* ===== הסימולטור ===== */
+.simulator {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4%;
+}
+
+/* כפתורי הרדיו עצמם מוסתרים, והלחצנים (label) משמשים במקומם */
+.sim-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== לחצני הבחירה ===== */
+.sim-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 34%;
+}
+
+.sim-controls fieldset {
+  padding: 5%;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+}
+
+.sim-controls legend {
+  padding: 0 0.6rem;
+  color: var(--coffee);
+  font-family: "Frank Ruhl Libre", "David", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.option-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.option-row .btn {
+  flex: 1 1 auto;
+  padding: 0.4em 1em;
+  font-size: 1rem;
+}
+
+/* עיגולי צבע לסגנונות */
+.swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 22%;
+  flex: 1 1 auto;
+  padding: 0.4rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: var(--coffee);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.swatch:hover {
+  background-color: #f3ead8;
+}
+
+.dot {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #cdbd9c;
+}
+
+.dot-warm   { background: linear-gradient(135deg, #8a6240, #4b3621); }
+.dot-luxury { background: linear-gradient(135deg, #f3dc9a, #c9a24a); }
+.dot-modern { background: linear-gradient(135deg, #8e8e93, #4a4a4a); }
+.dot-light  { background: linear-gradient(135deg, #ffffff, #efe3cb); }
+
+/* ===== התמונה ===== */
+.sim-stage {
+  /* משתנים שמשתנים לפי הסגנון שנבחר (ברירת מחדל: חם וביתי) */
+  --img-filter: sepia(0.3) saturate(1.1) brightness(1.02);
+  --tint: rgba(120, 80, 40, 0.18);
+
+  position: relative;
+  width: 62%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  background-color: var(--gray);
+  box-shadow: 0 15px 35px rgba(75, 54, 33, 0.3);
+}
+
+.sim-stage img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  filter: var(--img-filter);
+  transition: opacity 0.5s, filter 0.6s;
+}
+
+/* שכבת צבע שקופה מעל התמונה */
+.sim-stage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tint);
+  pointer-events: none;
+  transition: background-color 0.6s;
+}
+
+.sim-stage figcaption {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  gap: 0.4em;
+  width: 100%;
+  padding: 3% 4%;
+  background: linear-gradient(transparent, rgba(40, 28, 15, 0.85));
+  color: var(--cream);
+  font-family: "Frank Ruhl Libre", "David", Georgia, serif;
+  font-size: 1.4rem;
+}
+
+.cap-space,
+.cap-style {
+  display: none;
+}
+
+/* ===== תגובה לבחירת חלל ===== */
+.space-living:checked ~ .sim-stage .img-living,
+.space-bedroom:checked ~ .sim-stage .img-bedroom,
+.space-garden:checked ~ .sim-stage .img-garden {
+  opacity: 1;
+}
+
+.space-living:checked ~ .sim-stage .cap-living,
+.space-bedroom:checked ~ .sim-stage .cap-bedroom,
+.space-garden:checked ~ .sim-stage .cap-garden {
+  display: inline;
+}
+
+.space-living:checked ~ .sim-controls .lbl-living,
+.space-bedroom:checked ~ .sim-controls .lbl-bedroom,
+.space-garden:checked ~ .sim-controls .lbl-garden {
+  background-color: var(--gold);
+  color: var(--coffee);
+  font-weight: 700;
+}
+
+/* ===== תגובה לבחירת סגנון ===== */
+.style-warm:checked ~ .sim-stage {
+  --img-filter: sepia(0.3) saturate(1.1) brightness(1.02);
+  --tint: rgba(120, 80, 40, 0.18);
+}
+
+.style-luxury:checked ~ .sim-stage {
+  --img-filter: sepia(0.45) saturate(1.4) contrast(1.1);
+  --tint: rgba(201, 162, 74, 0.28);
+}
+
+.style-modern:checked ~ .sim-stage {
+  --img-filter: grayscale(0.85) contrast(1.1);
+  --tint: rgba(90, 90, 100, 0.2);
+}
+
+.style-light:checked ~ .sim-stage {
+  --img-filter: brightness(1.15) saturate(0.8) contrast(0.95);
+  --tint: rgba(255, 248, 235, 0.3);
+}
+
+.style-warm:checked ~ .sim-stage .cap-warm,
+.style-luxury:checked ~ .sim-stage .cap-luxury,
+.style-modern:checked ~ .sim-stage .cap-modern,
+.style-light:checked ~ .sim-stage .cap-light {
+  display: inline;
+}
+
+.style-warm:checked ~ .sim-controls .lbl-warm,
+.style-luxury:checked ~ .sim-controls .lbl-luxury,
+.style-modern:checked ~ .sim-controls .lbl-modern,
+.style-light:checked ~ .sim-controls .lbl-light {
+  border-color: var(--gold);
+  background-color: #f3ead8;
+  font-weight: 700;
+}
+
+/* סימון מקלדת: מסגרת סביב הלחצן הפעיל כשמנווטים עם Tab */
+.space-living:focus-visible ~ .sim-controls .lbl-living,
+.space-bedroom:focus-visible ~ .sim-controls .lbl-bedroom,
+.space-garden:focus-visible ~ .sim-controls .lbl-garden,
+.style-warm:focus-visible ~ .sim-controls .lbl-warm,
+.style-luxury:focus-visible ~ .sim-controls .lbl-luxury,
+.style-modern:focus-visible ~ .sim-controls .lbl-modern,
+.style-light:focus-visible ~ .sim-controls .lbl-light {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+/* ===== איך משתמשים ===== */
+.how-to {
+  padding: 3% 5%;
+  background-color: #ece1cd;
+  border-right: 4px solid var(--gold);
+  border-radius: 8px;
+}
+
+.how-to h2 {
+  margin-bottom: 0.6rem;
+  font-size: 1.5rem;
+}
+
+.how-to ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-inline-start: 1.4rem;
+  color: var(--coffee);
+}
+
+/* ===== לחצנים ===== */
+.sim-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.btn-large {
+  min-width: 12rem;
+  padding: 0.7em 2.5em;
+  font-size: 1.3rem;
+}
+
+/* ===== רספונסיביות ===== */
+@media (max-width: 900px) {
+  .simulator {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sim-controls,
+  .sim-stage {
+    width: 100%;
+  }
+
+  .sim-controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sim-controls fieldset {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sim-hero {
+    min-height: 30vh;
+    background-attachment: scroll;
+  }
+
+  .sim-hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .sim-card {
+    width: 94%;
+    margin-top: -10%;
+    padding: 6% 5%;
+  }
+
+  .sim-controls {
+    flex-direction: column;
+  }
+
+  .sim-controls fieldset {
+    flex: none;
+  }
+
+  .sim-stage figcaption {
+    font-size: 1.1rem;
+  }
+
+  .sim-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sim-stage img,
+  .sim-stage::after,
+  .swatch {
+    transition: none;
+  }
+}

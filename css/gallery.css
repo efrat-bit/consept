@@ -1,0 +1,341 @@
+/* ===== gallery.css - עיצוב ייחודי לדפי עיצוב פנים ועיצוב חוץ ===== */
+
+/* ביטול הגבלת הרוחב של main מהקובץ המשותף, כדי שאזור הפתיחה יתפרס על כל המסך */
+main.gallery-page {
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+  padding: 0 0 4%;
+}
+
+/* ===== אזור פתיחה ===== */
+.gallery-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 45vh;
+  padding-bottom: 6%;
+  background-color: var(--coffee);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+  .main-nav {
+     position: sticky;
+    top: 0;
+    z-index: 1000;   }
+
+.gallery-hero.hero-interior {
+  background-image:
+    linear-gradient(rgba(75, 54, 33, 0.65), rgba(75, 54, 33, 0.8)),
+    url("../assets/images/interior-hero.jpg");
+}
+
+.gallery-hero.hero-exterior {
+  background-image:
+    linear-gradient(rgba(75, 54, 33, 0.65), rgba(75, 54, 33, 0.8)),
+    url("../assets/images/exterior-hero.jpg");
+}
+
+.gallery-hero h1 {
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--gold);
+  color: var(--cream);
+  font-size: 4rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== כרטיס פתיחה צף עם נגן המוזיקה ===== */
+.gallery-intro {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4%;
+  width: 90%;
+  max-width: 1100px;
+  margin: -6% auto 0;
+  padding: 3% 5%;
+  background-color: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(75, 54, 33, 0.25);
+}
+
+.gallery-intro > p {
+  width: 60%;
+  color: var(--coffee);
+  font-family: "Frank Ruhl Libre", "David", Georgia, serif;
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+
+.music-box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  width: 34%;
+  padding: 3%;
+  background-color: #ece1cd;
+  border-radius: 8px;
+}
+
+.music-box p {
+  color: var(--coffee);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.music-box audio {
+  width: 100%;
+}
+
+/* ===== גלריית העיצובים ===== */
+.designs {
+  width: 90%;
+  max-width: 1200px;
+  margin: 5% auto 0;
+}
+
+.designs > h2 {
+  margin-bottom: 3%;
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.designs > h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  margin: 0.6rem auto 0;
+  background-color: var(--gold);
+}
+
+.designs-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3%;
+  row-gap: 2rem;
+}
+
+.design-card {
+  display: flex;
+  flex-direction: column;
+  width: 31.3%;
+  overflow: hidden;
+  background-color: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(75, 54, 33, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.design-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(75, 54, 33, 0.28);
+}
+
+.design-card figure {
+  overflow: hidden;
+  background-color: var(--gray);
+}
+
+.design-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.design-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.7rem;
+  padding: 5%;
+}
+
+.card-body h3 {
+  color: var(--coffee);
+  font-family: "Frank Ruhl Libre", "David", Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+.designer {
+  color: var(--gold);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* ===== קישורי רכישה לחפצים ===== */
+.item-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.item-links a {
+  display: inline-block;
+  padding: 0.15em 0.9em;
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  color: var(--coffee);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.item-links a:hover,
+.item-links a:focus-visible {
+  background-color: var(--gold);
+  color: var(--white);
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.card-actions .btn {
+  flex: 1;
+  padding: 0.4em 0.8em;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* ===== תמונה מוגדלת (נפתחת ב-CSS בלבד באמצעות :target) ===== */
+.lightbox {
+  position: fixed;
+  top: 0;
+  right: 0;
+ left: 0;
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+
+
+.lightbox-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox img {
+  position: relative;
+  max-width: 50%;
+  max-height: 50%;
+  border: 3px solid var(--gold);
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: fixed;
+ padding: 10px 18px;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  background-color: var(--coffee);
+  color: var(--cream);
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+   top: 20px;
+    right: 30px;
+ font-size: 16px;
+  font-weight: bold;
+  z-index: 10000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  background-color: var(--gold);
+  color: var(--coffee);
+  
+}
+
+/* ===== רספונסיביות ===== */
+@media (max-width: 1000px) {
+  .design-card {
+    width: 48.5%;
+  }
+
+  .gallery-intro {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gallery-intro > p,
+  .music-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-hero {
+    min-height: 35vh;
+    background-attachment: scroll;
+  }
+
+  .gallery-hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .gallery-intro {
+    width: 94%;
+    margin-top: -10%;
+    padding: 6% 5%;
+  }
+
+  .designs {
+    width: 94%;
+  }
+}
+
+@media (max-width: 640px) {
+  .design-card {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .design-card,
+  .design-card img,
+  .item-links a,
+  .lightbox-close {
+    transition: none;
+  }
+}
